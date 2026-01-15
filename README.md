@@ -1,20 +1,20 @@
-# ScrapeGraphAI를 활용한 LLM 기반 Webスクレイピング
+# ScrapeGraphAI를 활용한 LLM 기반 Web스크레이핑
 
 [![Promo](https://github.com/bright-kr/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/)
 
-이 가이드는 ScrapeGraphAI와 대규모 언어 모델(LLM)을 사용하여 Webスクレイピング을 단순화하고 데이터 추출을 자동화하는 방법을 설명합니다.
+이 가이드는 ScrapeGraphAI와 대규모 언어 모델(LLM)을 사용하여 Web스크레이핑을 단순화하고 데이터 추출을 자동화하는 방법을 설명합니다.
 
 - [왜 ScrapeGraphAI를 사용해야 하나요?](#why-use-scrapegraphai)
 - [사전 준비 사항](#prerequisites)
 - [환경 설정](#setting-up-your-environment)
 - [ScrapeGraphAI로 데이터 스クレイピング하기](#scraping-data-with-scrapegraphai)
   - [스크레이퍼 코드 작성](#writing-the-scraper-code)
-  - [ScrapeGraphAI에서 プロキシ 사용하기](#using-proxies-with-scrapegraphai)
+  - [ScrapeGraphAI에서 프록시 사용하기](#using-proxies-with-scrapegraphai)
 - [데이터 정리 및 준비](#cleaning-and-preparing-data)
 
 ## Why use ScrapeGraphAI?
 
-기존 Webスクレイピング은 각 웹사이트 레이아웃에 맞춘 복잡하고 시간이 많이 드는 코드를 작성해야 하며, 사이트가 변경되면 종종 동작이 깨지곤 합니다.
+기존 Web스크레이핑은 각 웹사이트 레이아웃에 맞춘 복잡하고 시간이 많이 드는 코드를 작성해야 하며, 사이트가 변경되면 종종 동작이 깨지곤 합니다.
 
 [ScrapeGraphAI](https://scrapegraphai.com/)는 대규모 언어 모델(LLM)을 활용하여 사람처럼 데이터를 해석하고 추출하므로, 레이아웃이 아니라 데이터 자체에 집중할 수 있습니다. LLM을 통합함으로써 ScrapeGraphAI는 데이터 추출을 개선하고, 콘텐츠 집계를 자동화하며, 실시간 분석을 가능하게 합니다.
 
@@ -72,7 +72,7 @@ OPENAI_API_KEY="your-openai-api-key"
 
 ## Scraping Data with ScrapeGraphAI
 
-Webスクレイピング 기법 연습을 위해 특별히 만들어진 데모 웹사이트인 [Books to Scrape](http://books.toscrape.com/)에서 제품 데이터를 스クレイピング하는 것부터 시작합니다. 이 웹사이트는 온라인 서점을 모방하고 있으며, 다양한 장르의 책을 가격, 평점, 재고 상태와 함께 제공합니다:
+Web스크레이핑 기법 연습을 위해 특별히 만들어진 데모 웹사이트인 [Books to Scrape](http://books.toscrape.com/)에서 제품 데이터를 스クレイピング하는 것부터 시작합니다. 이 웹사이트는 온라인 서점을 모방하고 있으며, 다양한 장르의 책을 가격, 평점, 재고 상태와 함께 제공합니다:
 
 ![Books to Scrape website](https://github.com/bright-kr/web-scraping-with-scrapegraphai/blob/main/images/Books-to-Scrape-website-1024x772.png)
 
@@ -87,7 +87,7 @@ ScrapeGraphAI는 다양한 스クレイピング 요구에 맞춘 여러 graph�
 
 또한 특정 요구에 맞도록 노드를 조합하여 커스텀 graph를 만들 수도 있습니다.
 
-정확한 스크레이핑을 보장하려면 명확한 프롬프트, 모델 선택, 지오로케이션 제한 콘텐츠를 위한 プロキシ, 효율성을 위한 headless 모드 등을 포함하여 스크레이퍼를 적절히 구성해야 합니다. 올바른 설정은 추출된 데이터의 정밀도에 영향을 미칩니다.
+정확한 스크레이핑을 보장하려면 명확한 프롬프트, 모델 선택, 지오로케이션 제한 콘텐츠를 위한 프록시, 효율성을 위한 headless 모드 등을 포함하여 스크레이퍼를 적절히 구성해야 합니다. 올바른 설정은 추출된 데이터의 정밀도에 영향을 미칩니다.
 
 ### Writing the Scraper Code
 
@@ -155,9 +155,9 @@ print(result)
 > 
 > 잠재적인 오류를 방지하려면 [`grpcio`](https://pypi.org/project/grpcio/) 패키지가 설치되어 있는지 확인하십시오.
 
-ScrapeGraphAI는 Webスクレイピング의 데이터 추출 부분을 쉽게 만들어 주지만, CAPTCHA와 IP 차단 같은 일반적인 과제는 여전히 존재합니다.
+ScrapeGraphAI는 Web스크레이핑의 데이터 추출 부분을 쉽게 만들어 주지만, CAPTCHA와 IP 차단 같은 일반적인 과제는 여전히 존재합니다.
 
-브라우징 동작을 모방하기 위해 코드에 시간 지연을 구현할 수 있습니다. 또한 탐지를 피하기 위해 ローテーティングプロキシ를 활용할 수도 있습니다. 추가로 Bright Data의 CAPTCHA solver 또는 Anti Captcha 같은 CAPTCHA 해결 서비스를 스크레이퍼에 통합하면 CAPTCHA를 자동으로 해결할 수 있습니다.
+브라우징 동작을 모방하기 위해 코드에 시간 지연을 구현할 수 있습니다. 또한 탐지를 피하기 위해 ローテーティング프록시를 활용할 수도 있습니다. 추가로 Bright Data의 CAPTCHA solver 또는 Anti Captcha 같은 CAPTCHA 해결 서비스를 스크레이퍼에 통합하면 CAPTCHA를 자동으로 해결할 수 있습니다.
 
 > **Important**:
 > 
@@ -165,7 +165,7 @@ ScrapeGraphAI는 Webスクレイピング의 데이터 추출 부분을 쉽게 �
 
 ## Using Proxies with ScrapeGraphAI
 
-ScrapeGraphAI에서는 IP 차단을 피하고 지오로케이션 제한 페이지에 접근하기 위해 プロキシ 서비스를 설정할 수 있습니다. 이를 위해 `graph_config`에 다음을 추가합니다:
+ScrapeGraphAI에서는 IP 차단을 피하고 지오로케이션 제한 페이지에 접근하기 위해 프록시 서비스를 설정할 수 있습니다. 이를 위해 `graph_config`에 다음을 추가합니다:
 
 ```python
 graph_config = {
@@ -188,9 +188,9 @@ graph_config = {
 }
 ```
 
-이 구성은 ScrapeGraphAI가 지정한 criteria에 맞는 무료 プロキシ 서비스를 사용하도록 지시합니다.
+이 구성은 ScrapeGraphAI가 지정한 criteria에 맞는 무료 프록시 서비스를 사용하도록 지시합니다.
 
-Bright Data 같은 제공업체의 커스텀 プロキシ 서버를 사용하려면, server URL, username, password를 넣어 다음과 같이 `graph_config`를 변경합니다:
+Bright Data 같은 제공업체의 커스텀 프록시 서버를 사용하려면, server URL, username, password를 넣어 다음과 같이 `graph_config`를 변경합니다:
 
 ```python
 graph_config = {
@@ -208,7 +208,7 @@ graph_config = {
 }
 ```
 
-커스텀 プロキシ 서버 사용은 특히 대규모 Webスクレイピング에 여러 이점을 제공합니다. プロキシ 위치를 제어할 수 있으므로 지오로케이션 제한 콘텐츠에 접근할 수 있습니다. 또한 커스텀 プロキシ는 무료 プロキ시보다 더 안정적이고 안전하여, IP 차단이나 レート制限 위험을 줄입니다.
+커스텀 프록시 서버 사용은 특히 대규모 Web스크레이핑에 여러 이점을 제공합니다. 프록시 위치를 제어할 수 있으므로 지오로케이션 제한 콘텐츠에 접근할 수 있습니다. 또한 커스텀 프록시는 무료 プロキ시보다 더 안정적이고 안전하여, IP 차단이나 속도 제한 위험을 줄입니다.
 
 ## Cleaning and Preparing Data
 
@@ -260,8 +260,8 @@ pip install pandas
 
 ## Conclusion
 
-ScrapeGraphAI는 LLM을 사용하여 적응형 Webスクレイピング을 수행하며, 웹사이트 변경에 맞춰 조정하고 데이터를 지능적으로 추출합니다. 그러나 스크레이핑을 확장하는 과정에서는 IP 차단, CAPTCHA, 법적 준수와 같은 과제가 발생합니다.
+ScrapeGraphAI는 LLM을 사용하여 적응형 Web스크레이핑을 수행하며, 웹사이트 변경에 맞춰 조정하고 데이터를 지능적으로 추출합니다. 그러나 스크레이핑을 확장하는 과정에서는 IP 차단, CAPTCHA, 법적 준수와 같은 과제가 발생합니다.
 
-Bright Data는 [Web Scraper APIs](https://brightdata.co.kr/products/web-scraper), [プロキシ 서비스](https://brightdata.co.kr/proxy-types), [Serverless Scraping](https://brightdata.co.kr/products/web-scraper/functions) 등 이러한 과제를 해결하기 위한 솔루션을 제공합니다. 또한 100개가 넘는 인기 웹사이트에서 수집한 [바로 사용할 수 있는 データセット](https://brightdata.co.kr/products/datasets)도 제공합니다.
+Bright Data는 [Web Scraper APIs](https://brightdata.co.kr/products/web-scraper), [프록시 서비스](https://brightdata.co.kr/proxy-types), [Serverless Scraping](https://brightdata.co.kr/products/web-scraper/functions) 등 이러한 과제를 해결하기 위한 솔루션을 제공합니다. 또한 100개가 넘는 인기 웹사이트에서 수집한 [바로 사용할 수 있는 데이터셋](https://brightdata.co.kr/products/datasets)도 제공합니다.
 
 지금 무료 체험을 시작해 보십시오!
